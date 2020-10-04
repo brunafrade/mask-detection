@@ -67,5 +67,5 @@ labelmap/labelmap.prototxt
 
 3. Run:
 ```
-train.sh
+bash train.sh
 ```
