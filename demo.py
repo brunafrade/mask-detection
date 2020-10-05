@@ -127,7 +127,7 @@ def inference(image, model,
         output_info.append([class_id, conf, left, right, top, bottom])
 
     if show_result:
-        cv2.imshow('POLSECAI',image)
+        cv2.imshow('IGTI',image)
         cv2.waitKey(1000)
     return output_info
 
@@ -170,11 +170,11 @@ def run_on_video(video_path, model, output_video_name, conf_thresh):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Face Mask Detection")
-    parser.add_argument('--img-mode', type=int, default=1, help='set 1 to run on image, 0 to run on video.')
+    parser.add_argument('--img-mode', type=int, default=0, help='set 1 to run on image, 0 to run on video.')
     parser.add_argument('--img-path', type=str, help='path to your image.')
     parser.add_argument('--video-path', type=str, default='0', help='path to your video, `0` means to use camera.')
     args = parser.parse_args()
-    model = load_caffe_model('models/deploy/ssd-mask.prototxt','models/deploy/ssd-mask.caffemodel');
+    model = load_caffe_model('models/deploy/ssd-mask-aug-tunning.prototxt','models/deploy/ssd-mask-aug-tunning.caffemodel')
 
     if args.img_mode:
         inference_stamp = time.time()
